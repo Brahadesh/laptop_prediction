@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            background: #ffffff;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .prediction {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .dropdown {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Price Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="Company">Select Company:</label>
+            <select id="Company" name="Company" required>
+                <option value="Dell">Dell</option>
+                <option value="HP">HP</option>
+                <option value="Apple">Apple</option>
+                <option value="Asus">Asus</option>
+            </select>
+
+            <label for="TypeName">Select Type:</label>
+            <select id="TypeName" name="TypeName" required>
+                <option value="Ultrabook">Ultrabook</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Notebook">Notebook</option>
+                <option value="Workstation">Workstation</option>
+            </select>
+
+            <label for="Ram">Select RAM (GB):</label>
+            <input type="number" id="Ram" name="Ram" placeholder="e.g., 16" required>
+
+            <label for="Weight_Category">Select Weight Category:</label>
+            <select id="Weight_Category" name="Weight_Category" required>
+                <option value="Light">Light</option>
+                <option value="Medium">Medium</option>
+                <option value="Heavy">Heavy</option>
+            </select>
+
+            <label for="Cpu_brand">Select CPU Brand:</label>
+            <select id="Cpu_brand" name="Cpu_brand" required>
+                <option value="Intel">Intel</option>
+                <option value="AMD">AMD</option>
+            </select>
+
+            <label for="HDD">Enter HDD (GB):</label>
+            <input type="number" id="HDD" name="HDD" placeholder="e.g., 512" required>
+
+            <label for="SSD">Enter SSD (GB):</label>
+            <input type="number" id="SSD" name="SSD" placeholder="e.g., 256" required>
+
+            <label for="Gpu_brand">Select GPU Brand:</label>
+            <select id="Gpu_brand" name="Gpu_brand" required>
+                <option value="NVIDIA">NVIDIA</option>
+                <option value="AMD">AMD</option>
+                <option value="Intel">Intel</option>
+            </select>
+
+            <label for="Os">Select OS:</label>
+            <select id="Os" name="Os" required>
+                <option value="Windows">Windows</option>
+                <option value="MacOS">MacOS</option>
+                <option value="Linux">Linux</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="prediction">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
