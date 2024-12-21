@@ -4,7 +4,7 @@ import pandas as pd
 
 
 # Load the trained model
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('models/model.pkl', 'rb'))
 
 app = Flask(__name__)
 

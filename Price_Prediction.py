@@ -87,6 +87,6 @@ print(df_encoded.shape)
 
 
 import pickle
-pickle.dump(model, open('model.pkl', 'wb'))
-model = pickle.load(open('model.pkl','rb'))
+pickle.dump(model, open('models/model.pkl', 'wb'))
+model = pickle.load(open('models/model.pkl','rb'))
 
